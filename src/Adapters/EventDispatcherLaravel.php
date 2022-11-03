@@ -1,13 +1,9 @@
 <?php
-/**
- * @package php-tmdb\laravel
- * @author Mark Redeman <markredeman@gmail.com>
- * @copyright (c) 2014, Mark Redeman
- */
+
 namespace Tmdb\Laravel\Adapters;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface as SymfonyDispatcher;
-use Illuminate\Events\Dispatcher as LaravelDispatcher;
+use Illuminate\Contracts\Events\Dispatcher as LaravelDispatcher;
 
 /**
  * This adapter provides a Laravel integration for applications
@@ -15,7 +11,7 @@ use Illuminate\Events\Dispatcher as LaravelDispatcher;
  * It passes any request on to a Symfony Dispatcher and only
  * uses the Laravel Dispatcher only when dispatching events
  */
-class EventDispatcherLaravel4 extends EventDispatcherAdapter
+class EventDispatcherLaravel extends EventDispatcherAdapter
 {
     /**
      * Forward all methods to the Laravel Events Dispatcher

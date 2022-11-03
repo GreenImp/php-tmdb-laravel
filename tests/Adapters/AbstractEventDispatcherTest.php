@@ -1,23 +1,12 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+namespace Tmdb\Laravel\Tests\Adapters;
 
-namespace Tmdb\Laravel\Adapters\Tests;
-
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-use Prophecy\Prophecy\MethodProphecy;
+use Orchestra\Testbench\TestCase;
 
-abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractEventDispatcherTest extends TestCase
 {
     const EVENT = 'foo';
 
@@ -31,7 +20,7 @@ abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
 
     private $listener;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->dispatcher = $this->createEventDispatcher();
     }
@@ -41,7 +30,7 @@ abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_dispatches_events_through_both_laravel_and_symfony()
     {
-        $this->laravel->fire(static::EVENT, null)->shouldBeCalled();
+        $this->laravel->dispatch(static::EVENT, null)->shouldBeCalled();
         $this->symfony->dispatch(static::EVENT, null)->shouldBeCalled();
 
         $this->dispatcher->dispatch(static::EVENT);
