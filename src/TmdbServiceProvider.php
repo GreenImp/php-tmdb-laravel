@@ -2,14 +2,13 @@
 
 namespace Tmdb\Laravel;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Tmdb\Laravel\Adapters\EventDispatcherAdapter;
 use Tmdb\Laravel\Adapters\EventDispatcherLaravel;
 
-class TmdbServiceProvider extends ServiceProvider implements DeferrableProvider
+class TmdbServiceProvider extends ServiceProvider
 {
     public const CONFIG_PATH = __DIR__.'/../config/tmdb.php';
 
@@ -53,15 +52,5 @@ class TmdbServiceProvider extends ServiceProvider implements DeferrableProvider
             $configuration = $this->app->make('Tmdb\Repository\ConfigurationRepository');
             return $configuration->load();
         });*/
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return array('tmdb');
     }
 }

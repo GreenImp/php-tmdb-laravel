@@ -17,13 +17,13 @@
         "php": "^8.0.2|^8.1",
         "guzzlehttp/guzzle": "^7.5",
         "illuminate/support": "^8.0|^9.0",
-        "php-tmdb/api": "^4.1"
+        "php-tmdb/api": "^4.1",
+        "symfony/event-dispatcher": "^v6.1.0",
+        "symfony/cache": "v6.1.7"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0|^7.0",
         "phpunit/phpunit": "^9.5.26",
-        "symfony/event-dispatcher": "^v6.1.0",
-        "symfony/cache": "v6.1.7"
     },
     "autoload": {
         "psr-4": {
