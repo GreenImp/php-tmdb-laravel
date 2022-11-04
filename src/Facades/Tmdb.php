@@ -15,5 +15,4 @@ class Tmdb extends Facade
     {
         return 'Tmdb\Client';
     }
-
 }
